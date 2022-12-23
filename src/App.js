@@ -1,7 +1,8 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import Detail from "./container/Deatails/Deatails";
+import Home from "./container/home/Home";
 import Login from "./container/login/Login";
-import Popup from "./container/popup/Popup";
 
 const router = createBrowserRouter([
   {
@@ -9,8 +10,12 @@ const router = createBrowserRouter([
     element: <Login />
   },
   {
-    path: '/popup',
-    element: <Popup />
+    path: '/home',
+    element: <Home />
+  },
+  {
+    path: '/detail',
+    element: <Detail />
   }
 ]);
 

@@ -1,47 +1,116 @@
+import { LockOutlined, UserOutlined } from "@ant-design/icons";
+import { Checkbox, Form } from "antd";
+import { useNavigate } from "react-router-dom";
 import images from "../../assets/images";
-import { Forgot, InputForm, InputText, InputTitle, LoginForm, LoginWrapper, Opacity, OutLoginForm, RememberContainer, RememberNote, RememberRadio, RememberWrapper, SiginButton, SubTitle, Title, Wrapper } from "./loginStyle";
+import { InputCustoms, InputTitle, LoginButton, LoginButtonWrap, LoginForm, Opacity, OutLoginForm, SubTitle, Title, Wrapper } from "./loginStyle";
+import users from "../../data/usersData";
 
 const Login = (props) => {
+  const navigate = useNavigate();
 
-    const user = {
-        
-    }
+  const onFinish = (values) => {
+    console.log('Received values of form: ', values);
+    users.forEach((user) => {
+      if (
+        user.username === values.username
+        && user.password === values.password) {
+        navigate("/home")
+      }
+    })
+  };
 
-    return (
-        <Wrapper>
-            <LoginForm>
-                <LoginWrapper>
-                    <Title height={"42px"}>Welcome back</Title>
-                    <SubTitle height={"32px"}>Welcome back! Please enter your details</SubTitle>
-                    
-                    <InputForm with={"100%"} height={"50px"}>
-                        <InputTitle height={"20px"}>Email</InputTitle>
-                        <InputText type="text" placeholder="Enter your email" ></InputText>
-                    </InputForm>
+  return (
 
-                    <InputForm with={"100%"} height={"50px"}>
-                        <InputTitle height={"20px"}>Password</InputTitle>
-                        <InputText type="text" placeholder="Enter your password" ></InputText>
-                    </InputForm>
+    <Wrapper>
+      <LoginForm>
+        <Form
+          name="normal_login"
+          className="login-form"
+          initialValues={{
+            remember: true,
+          }}
+          onFinish={onFinish}
+        >
+          <Title height={"42px"}>Welcome back</Title>
+          <SubTitle height={"32px"}>
+            Welcome back! Please enter your details
+          </SubTitle>
+          <InputTitle Title height={"20px"}>Email</InputTitle>
+          <Form.Item
+            name="username"
+            rules={[
+              {
+                required: true,
+                message: 'Please input your Email!',
+              },
+            ]}
+          >
+            <InputCustoms
+              prefix={
+                <UserOutlined
+                  className="site-form-item-icon"
 
-                    <RememberWrapper>
-                        <RememberContainer>
-                            <RememberRadio type="checkbox" />
-                            <RememberNote>Remember me</RememberNote>
-                        </RememberContainer>
+                />}
+              placeholder="Enter your email" />
+          </Form.Item>
+          <InputTitle height={"20px"}>Password</InputTitle>
+          <Form.Item
+            name="password"
+            rules={[
+              {
+                required: true,
+                message: 'Please input your Password!',
+              },
+            ]}
+          >
+            <InputCustoms
+              prefix={
+                <LockOutlined
+                  className="site-form-item-icon" />
+              }
+              type="password"
+              placeholder="Enter your password"
+            />
+          </Form.Item>
+          <Form.Item
+          // style={{
+          //   fontSize: 16
+          // }}
+          >
+            <Form.Item
+              name="remember"
+              valuePropName="checked"
+              noStyle
+            >
+              <Checkbox
+                style={{
+                  fontSize: 16
+                }}
+              >Remember me</Checkbox>
+            </Form.Item>
 
-                        <Forgot>Forgot password</Forgot>
-                    </RememberWrapper>
+            {/* <a className="login-form-forgot" href="">
+              Forgot password
+            </a> */}
+          </Form.Item>
 
-                    <SiginButton>Sign in</SiginButton>
-                </LoginWrapper>
-            </LoginForm>
+          <LoginButtonWrap>
+            <LoginButton
+              type="primary"
+              htmlType="submit"
+              className="login-form-button"
+            >
+              Log in
+            </LoginButton>
+          </LoginButtonWrap>
+        </Form>
+      </LoginForm>
 
-            <OutLoginForm backgroundImage={images.login.backLogin}>
-                <Opacity />
-            </OutLoginForm>
-        </Wrapper>
-    );
+      <OutLoginForm backgroundImage={images.login.backLogin}>
+        <Opacity />
+      </OutLoginForm>
+    </Wrapper>
+  );
 }
 
 export default Login;
