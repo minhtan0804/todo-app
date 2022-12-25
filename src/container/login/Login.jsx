@@ -15,6 +15,9 @@ const Login = (props) => {
         user.username === values.username
         && user.password === values.password) {
         navigate("/home")
+      } else {
+        console.log("Wrong username or password");
+        // navigate("/login")
       }
     })
   };

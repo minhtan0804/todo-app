@@ -11,9 +11,10 @@ const AvatarCus = styled(Avatar)`
 const Profile = styled.div`
 margin-top: 20px;
     align-self: center;
-    margin-bottom: -380px;
+    /* margin-bottom: -380px; */
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
 `;
 
 const AvatarCustom = () => {

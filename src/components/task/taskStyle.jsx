@@ -22,6 +22,7 @@ export const TaskTitle = styled.span`
     width: 250px;
 `;
 
+
 export const TagPriority = styled(Tag)`
     padding: 4px 10px;
     border-radius: 10px;
@@ -48,6 +49,10 @@ export const DeleteButton = styled(Button)`
     margin-left: 2px;
 `;
 export const EditButton = styled(Button)`
+    border: none;
+    `;
+
+export const DetailButton = styled(Button)`
     border: none;
 `;
 

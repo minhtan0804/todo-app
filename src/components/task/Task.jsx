@@ -1,6 +1,6 @@
-import { DeleteButton, DesCriptionTask, EditButton, MoreActions, TagEnd, TagPriority, TagStart, TaskTitle, TaskTitleWrap, Wrapper } from "./taskStyle";
+import { DeleteButton, DesCriptionTask, DetailButton, DetailIcon, EditButton, MoreActions, TagEnd, TagPriority, TagStart, TaskTitle, TaskTitleWrap, Wrapper } from "./taskStyle";
 import { Draggable } from "@hello-pangea/dnd"
-import { CheckCircleOutlined, DeleteOutlined, EditOutlined } from "@ant-design/icons";
+import { CheckCircleOutlined, DeleteOutlined, EditOutlined, InfoCircleOutlined } from "@ant-design/icons";
 
 
 const Task = ({ task, index }) => {
@@ -30,10 +30,12 @@ const Task = ({ task, index }) => {
                             <TaskTitle className="task-title">{task.title}</TaskTitle>
 
                             <MoreActions
-                                
+
                             >
+                                <DetailButton icon={<InfoCircleOutlined />} />
                                 <EditButton icon={<EditOutlined />} />
                                 <DeleteButton icon={<DeleteOutlined />} />
+
                             </MoreActions>
                         </TaskTitleWrap>
                         <TagPriority

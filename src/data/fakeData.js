@@ -7,14 +7,16 @@ const initialData = {
       description: 'Take out the garbage',
       start: '22/12/2022',
       end: '23/12/2022',
+      status: 'false',
     },
     'task-2': {
       id: 'task-2',
-      title: 'Watch my favorite shfddfrfgsdsfhsfhsdow',
+      title: 'Watch my favorite',
       tag: 'Important',
       description: 'Watch my favorite show',
       start: '22/12/2022',
       end: '23/12/2022',
+      status: 'false',
     },
     'task-3': {
       id: 'task-3',
@@ -23,6 +25,7 @@ const initialData = {
       description: 'Charge my phone',
       start: '22/12/2022',
       end: '23/12/2022',
+      status: 'false',
     },
     'task-4': {
       id: 'task-4',
@@ -31,6 +34,8 @@ const initialData = {
       description: 'Cook dinner',
       start: '22/12/2022',
       end: '23/12/2022',
+      status: 'false',
+
     },
     'task-5': {
       id: 'task-5',
@@ -39,6 +44,8 @@ const initialData = {
       description: 'Cook dinner',
       start: '22/12/2022',
       end: '23/12/2022',
+      status: 'false',
+
     },
     'task-6': {
       id: 'task-6',
@@ -47,6 +54,7 @@ const initialData = {
       description: 'Cook dinner',
       start: '22/12/2022',
       end: '23/12/2022',
+      status: 'false',
     },
   },
   columns: {

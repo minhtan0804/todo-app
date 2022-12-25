@@ -7,7 +7,7 @@ export const SideBarWrapper = styled.div`
     padding-left: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     
     border-inline-end: 1px solid rgba(5, 5, 5, 0.06);
     
